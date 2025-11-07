@@ -1,10 +1,11 @@
-package config;
+package helpers;
 
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:browserstack.properties"
+        "classpath:android.properties"
 })
+//Delete
 public interface BrowserstackConfig extends Config {
 
     @Key("userName")
