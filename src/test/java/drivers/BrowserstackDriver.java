@@ -2,6 +2,7 @@ package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import helpers.BrowserstackConfig;
+import helpers.CredentialsConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -18,19 +19,27 @@ public class BrowserstackDriver implements WebDriverProvider {
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         MutableCapabilities caps = new MutableCapabilities();
+
+        // Убедимся, что platform установлена
+        String platform = System.getProperty("platform", "android");
+        System.setProperty("platform", platform);
+
+        CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
         BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class);
 
-        caps.setCapability("browserstack.user", browserstackConfig.userName());
-        caps.setCapability("browserstack.key", browserstackConfig.accessKey());
-        caps.setCapability("app", browserstackConfig.app());
+        // BrowserStack capabilities в старом формате
+        caps.setCapability("browserstack.user", credentials.userName());
+        caps.setCapability("browserstack.key", credentials.accessKey());
+        caps.setCapability("app", credentials.app()); // Единое приложение
         caps.setCapability("device", browserstackConfig.device());
         caps.setCapability("os_version", browserstackConfig.osVersion());
         caps.setCapability("project", "First Java Project");
         caps.setCapability("build", "browserstack-build-1");
         caps.setCapability("name", "first_test");
+
         try {
             return new RemoteWebDriver(
-                    new URL("https://hub.browserstack.com/wd/hub"), caps);
+                    new URL(credentials.browserstackUrl()), caps);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

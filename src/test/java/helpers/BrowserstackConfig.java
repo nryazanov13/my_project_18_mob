@@ -3,23 +3,18 @@ package helpers;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:android.properties"
+        "classpath:config/${platform}.properties",
+        "system:properties",
+        "system:env"
 })
-//Delete
 public interface BrowserstackConfig extends Config {
-
-    @Key("userName")
-    String userName();
-
-    @Key("accessKey")
-    String accessKey();
-
-    @Key("app")
-    String app();
 
     @Key("device")
     String device();
 
     @Key("os_version")
     String osVersion();
+
+    @Key("platform")
+    String platform();
 }

@@ -8,10 +8,10 @@ public class Browserstack {
 
     public static String videoUrl(String sessionId) {
         String url = String.format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
-        BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class);
+        CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
 
         return given()
-                .auth().basic(browserstackConfig.userName(), browserstackConfig.accessKey())
+                .auth().basic(credentials.userName(), credentials.accessKey())
                 .get(url)
                 .then()
                 .log().status()

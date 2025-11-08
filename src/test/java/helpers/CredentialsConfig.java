@@ -3,7 +3,6 @@ package helpers;
 import org.aeonbits.owner.Config;
 
 @Config.Sources("classpath:config/credentials.properties")
-
 public interface CredentialsConfig extends Config {
 
     @Key("selenoid.login")
@@ -12,10 +11,15 @@ public interface CredentialsConfig extends Config {
     @Key("selenoid.password")
     String selenoidPassword();
 
-    @Key("userName")
+    @Key("user.name")
     String userName();
 
-    @Key("accessKey")
+    @Key("access.key")
     String accessKey();
 
+    @Key("browserstack.url")
+    String browserstackUrl();
+
+    @Key("app")
+    String app();
 }
