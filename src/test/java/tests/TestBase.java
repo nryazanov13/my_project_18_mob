@@ -4,10 +4,10 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.BrowserstackDriver;
+import drivers.EmulationDriver;
+import drivers.RealDeviceDriver;
 import helpers.Attach;
-import helpers.BrowserstackConfig;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,27 +17,36 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
 
-    protected static BrowserstackConfig config;
-
     @BeforeAll
     static void setUp() {
-        // Устанавливаем платформу по умолчанию, если не задана
-        String platform = getProperty("platform", "android");
-        if (platform != null && !platform.trim().isEmpty()) {
-            System.setProperty("platform", platform);
-        } else {
-            System.setProperty("platform", "android"); // значение по умолчанию
+        String deviceHost = System.getProperty("deviceHost", "emulation");
+        String platform = System.getProperty("platform", "android");
+
+        // Устанавливаем platform для конфигов
+        System.setProperty("platform", platform);
+
+        // Выбираем драйвер в зависимости от deviceHost
+        switch (deviceHost) {
+            case "browserstack":
+                Configuration.browser = BrowserstackDriver.class.getName();
+                break;
+            case "emulation":
+                Configuration.browser = EmulationDriver.class.getName();
+                break;
+            case "real":
+                Configuration.browser = RealDeviceDriver.class.getName();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown deviceHost: " + deviceHost);
         }
 
-        config = ConfigFactory.create(BrowserstackConfig.class);
-
-        Configuration.browser = BrowserstackDriver.class.getName();
+        // Общие настройки
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
 
-        System.out.println("📱 Запуск тестов на платформе: " + platform);
-        System.out.println("📱 Устройство: " + config.device());
-        System.out.println("📱 Версия ОС: " + config.osVersion());
+        System.out.println("🚀 Запуск тестов:");
+        System.out.println("📱 Platform: " + platform);
+        System.out.println("🏠 DeviceHost: " + deviceHost);
     }
 
     @BeforeEach
@@ -50,12 +59,11 @@ public class TestBase {
     void addAttachments() {
         String sessionId = Selenide.sessionId().toString();
         Attach.pageSource();
-        Attach.addVideo(sessionId);
-        closeWebDriver();
-    }
 
-    private static String getProperty(String name, String defaultValue) {
-        String property = System.getProperty(name);
-        return (property != null && !property.isEmpty()) ? property : defaultValue;
+        // Добавляем видео только для BrowserStack
+        if ("browserstack".equals(System.getProperty("deviceHost"))) {
+            Attach.addVideo(sessionId);
+        }
+        closeWebDriver();
     }
 }
