@@ -25,28 +25,25 @@ public class SearchScreen {
         return this;
     }
 
-    public SearchScreen insertSearchText (String text){
+    public SearchScreen insertSearchText(String text) {
         searchTextField.sendKeys(text);
         return this;
     }
 
-    public SearchScreen pressEnter (){
+    public SearchScreen pressEnter() {
         searchTextField.sendKeys(Keys.ENTER);
         return this;
     }
 
-    public SearchScreen checkSearchResultForSpecificText(String text){
+    public SearchScreen checkSearchResultForSpecificText(String text) {
         pageListItemTitle.shouldHave(text(text));
         return this;
     }
 
-    public SearchScreen checkIfPageListIsNotEmpty () {
+    public SearchScreen checkIfPageListIsNotEmpty() {
         pageListItems.shouldHave(sizeGreaterThan(0));
         return this;
     }
-
-
-
 
 
 }
