@@ -1,8 +1,8 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import helpers.BrowserstackConfig;
-import helpers.CredentialsConfig;
+import helpers.config.BrowserstackConfig;
+import helpers.config.CredentialsConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;

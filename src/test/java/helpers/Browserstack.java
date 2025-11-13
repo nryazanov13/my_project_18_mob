@@ -1,5 +1,6 @@
 package helpers;
 
+import helpers.config.CredentialsConfig;
 import org.aeonbits.owner.ConfigFactory;
 
 import static io.restassured.RestAssured.given;

@@ -1,4 +1,4 @@
-package helpers;
+package helpers.config;
 
 import org.aeonbits.owner.Config;
 

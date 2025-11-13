@@ -1,4 +1,4 @@
-package helpers;
+package helpers.config;
 
 import org.aeonbits.owner.Config;
 
@@ -14,7 +14,4 @@ public interface BrowserstackConfig extends Config {
 
     @Key("os_version")
     String osVersion();
-
-    @Key("platform")
-    String platform();
 }

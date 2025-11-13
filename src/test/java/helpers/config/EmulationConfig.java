@@ -1,15 +1,12 @@
-package helpers;
+package helpers.config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:config/real.properties")
-public interface RealDeviceConfig extends Config {
+@Config.Sources("classpath:config/emulator.properties")
+public interface EmulationConfig extends Config {
 
     @Key("device.name")
     String deviceName();
-
-    @Key("Udid")
-    String udid();
 
     @Key("os_version")
     String osVersion();

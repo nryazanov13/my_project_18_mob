@@ -1,7 +1,7 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import helpers.EmulationConfig;
+import helpers.config.EmulationConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.ios.IOSDriver;
@@ -47,7 +47,7 @@ public class EmulationDriver implements WebDriverProvider {
                 .setDeviceName(config.deviceName())
                 .setApp(getAppPath())
                 .setAppPackage("org.wikipedia.alpha")
-                .setAppActivity("org.wikipedia.*");
+                .setAppActivity("org.wikipedia.main.MainActivity");
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }

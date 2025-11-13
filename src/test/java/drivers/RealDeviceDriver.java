@@ -1,7 +1,7 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import helpers.RealDeviceConfig;
+import helpers.config.RealDeviceConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;

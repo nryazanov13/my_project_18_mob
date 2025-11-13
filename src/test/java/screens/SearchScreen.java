@@ -13,12 +13,18 @@ import static io.appium.java_client.AppiumBy.id;
 public class SearchScreen {
 
     protected SelenideElement
+            skipButton = $(id("org.wikipedia.alpha:id/fragment_onboarding_skip_button")),
             searchTab = $(accessibilityId("Search Wikipedia")),
             searchTextField = $(id("org.wikipedia.alpha:id/search_src_text")),
             pageListItemTitle = $(id("org.wikipedia.alpha:id/page_list_item_title"));
 
     protected ElementsCollection
             pageListItems = $$(id("org.wikipedia.alpha:id/page_list_item_title"));
+
+    public SearchScreen clickOnSkipButton() {
+        skipButton.click();
+        return this;
+    }
 
     public SearchScreen clickOnSearchTab() {
         searchTab.click();
