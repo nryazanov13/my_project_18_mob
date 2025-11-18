@@ -20,10 +20,6 @@ public class BrowserstackDriver implements WebDriverProvider {
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         MutableCapabilities caps = new MutableCapabilities();
 
-        // Убедимся, что platform установлена
-        String platform = System.getProperty("platform", "android");
-        System.setProperty("platform", platform);
-
         CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
         BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class);
 
