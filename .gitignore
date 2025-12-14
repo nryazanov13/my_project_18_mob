@@ -1,29 +1,17 @@
 HELP.md
+notifications/config.json
 build/
-.gradle/
-gradle/
-gradlew
-gradlew.bat
 !**/src/main/**
 !**/src/test/**
 
 ### IntelliJ IDEA ###
-.idea/
+.idea
 *.iws
 *.iml
 *.ipr
-out/
+
+### Gradle ###
+.gradle
 
 ### Logs ###
 *.log
-logs/
-
-### System ###
-.DS_Store
-Thumbs.db
-
-### Java ###
-*.class
-*.jar
-*.war
-*.ear

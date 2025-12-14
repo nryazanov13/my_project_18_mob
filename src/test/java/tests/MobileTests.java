@@ -12,6 +12,22 @@ public class MobileTests extends TestBase {
     SearchScreen searchScreen = new SearchScreen();
 
     @Test
+    @DisplayName("Проверка функциональности поиска")
+    void emptySearchTest() {
+        step("Ввести «» в поисковую строку", () -> {
+            searchScreen
+                    .clickOnSkipButton()
+                    .clickOnSearchTab()
+                    .pressEnter();
+        });
+
+        step("Проверка страницу с результатом поиска «Страница с поиском не пустая", () -> {
+            searchScreen
+                    .checkIfPageListIsNotEmpty();
+        });
+    }
+
+    @Test
     @DisplayName("Успешный поиск по слову «Appium»")
     void successfulSearchTest() {
         step("Ввести «Appium» в поисковую строку", () -> {
@@ -27,19 +43,5 @@ public class MobileTests extends TestBase {
         });
     }
 
-    @Test
-    @DisplayName("Проверка функциональности поиска")
-    void emptySearchTest() {
-        step("Ввести «» в поисковую строку", () -> {
-            searchScreen
-                    .clickOnSkipButton()
-                    .clickOnSearchTab()
-                    .pressEnter();
-        });
 
-        step("Проверка страницу с результатом поиска «Страница с поиском не пустая", () -> {
-            searchScreen
-                    .checkIfPageListIsNotEmpty();
-        });
-    }
 }
