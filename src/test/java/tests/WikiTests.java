@@ -8,7 +8,7 @@ import screens.SearchScreen;
 import static io.qameta.allure.Allure.step;
 
 @DisplayName("Класс для проверки функциональности поиска в интернет-энциклопедии «Википедия»")
-public class MobileTests extends TestBase {
+public class WikiTests extends TestBase {
 
     SearchScreen searchScreen = new SearchScreen();
 
