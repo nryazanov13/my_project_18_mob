@@ -1,5 +1,5 @@
 ## <a href="https://escape-room-neon.vercel.app/"><img alt="EscapeRoom" height="52" src="images/logo/logo.svg" width="134"/></a>
-# Проект по автоматизации тестирования для компании [Wikipedia](https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0)
+# Проект по автоматизации тестирования для мобильного приложения [Wikipedia](https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0)
 
 * [Репозиторий с проектом](https://github.com/nryazanov13/my_project_18_mob/tree/emulator)
 
@@ -31,7 +31,8 @@ ____
 <a href="https://selenide.org/"><img src="images/logo/Selenide.svg" width="50" height="50"  alt="Selenide"/></a>  
 <a href="https://aerokube.com/selenoid/"><img src="images/logo/Selenoid.svg" width="50" height="50"  alt="Selenoid"/></a>  
 <a href="https://allurereport.org/"><img src="images/logo/Allure.svg" width="50" height="50"  alt="Allure"/></a>  
-<a href="https://www.jenkins.io/"><img src="images/logo/Jenkins.svg" width="50" height="50"  alt="Jenkins"/></a>   
+<a href="https://www.jenkins.io/"><img src="images/logo/Jenkins.svg" width="50" height="50"  alt="Jenkins"/></a>
+<a href="https://appium.io/"><img src="images/logo/Appium.svg" width="50" height="50"  alt="Appium"/></a>
 </p>
 
 ____
@@ -39,7 +40,7 @@ ____
 ## <a name="Примеры автоматизированных тест-кейсов">**Примеры автоматизированных тест-кейсов:**</a>
 ____
 - ✓ *Проверка роботоспособности функциональности поиска*
-- ✓ *Проверка поиска по определенному значению*
+- ✓ *Проверка поиска по определенному значению == Appium*
 
 ____
 <a id="jenkins"></a>
@@ -66,7 +67,7 @@ ____
 ```
 ___
 <a id="allure"></a>
-## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.autotests.cloud/job/037-sandraboticelli-escaperoom-12/allure/)</a>
+## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.autotests.cloud/job/nryazanov_my_project_18_mob/4/allure/#suites)</a>
 ___
 
 ### *Основная страница отчёта*
@@ -90,16 +91,8 @@ ___
 </p>
 
 ____
-<a id="telegram"></a>
-## <img alt="Allure" height="25" src="images/logo/Telegram.svg" width="25"/></a> Уведомление в Telegram при помощи бота
-____
-<p align="center">  
-<img title="Allure Overview Dashboard" src="images/screen/telegram_report.png" width="550">  
-</p>
-
-____
 <a id="video"></a>
-## <img alt="Selenoid" height="25" src="images/logo/Selenoid.svg" width="25"/></a> Пример видео выполнения тестов на Selenoid
+## <img alt="Appium" height="25" src="images/logo/Appium.svg" width="25"/></a> Пример видео выполнения тестов на эмуляторе андроид
 
 <p align="center">
 <img title="Selenoid Video" src="images/video/video_report.gif" width="300" height=auto  alt="video">   
