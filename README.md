@@ -16,8 +16,6 @@ ____
 
 * <a href="#allure">Allure отчет</a>
 
-* <a href="#telegram">Уведомление в Telegram при помощи бота</a>
-
 * <a href="#video">Примеры видео выполнения тестов на Selenoid</a>
 ____
 <a id="tools"></a>
@@ -86,8 +84,6 @@ ___
 
   <p align="center">  
 <img title="Allure Graphics" src="images/screen/allure_report_2.png" width="850">
-
-<img title="Allure Graphics" src="images/screen/allure_report_3.png" width="850">  
 </p>
 
 ____
