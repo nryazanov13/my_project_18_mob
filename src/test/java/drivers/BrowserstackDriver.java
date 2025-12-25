@@ -23,7 +23,6 @@ public class BrowserstackDriver implements WebDriverProvider {
         CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
         BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class);
 
-        // BrowserStack capabilities в старом формате
         caps.setCapability("browserstack.user", credentials.userName());
         caps.setCapability("browserstack.key", credentials.accessKey());
         caps.setCapability("app", credentials.app()); // Единое приложение

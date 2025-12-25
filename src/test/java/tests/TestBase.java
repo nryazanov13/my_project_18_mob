@@ -21,7 +21,6 @@ public class TestBase {
     static void setUp() {
         String deviceHost = System.getProperty("deviceHost", "emulation");
 
-        // Выбираем драйвер в зависимости от deviceHost
         switch (deviceHost) {
             case "browserstack":
                 Configuration.browser = BrowserstackDriver.class.getName();
@@ -36,7 +35,6 @@ public class TestBase {
                 throw new IllegalArgumentException("Unknown deviceHost: " + deviceHost);
         }
 
-        // Общие настройки
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
     }
@@ -52,7 +50,6 @@ public class TestBase {
         String sessionId = Selenide.sessionId().toString();
         Attach.pageSource();
 
-        // Добавляем видео только для BrowserStack
         if ("browserstack".equals(System.getProperty("deviceHost"))) {
             Attach.addVideo(sessionId);
         }

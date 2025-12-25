@@ -24,17 +24,14 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class RealDeviceDriver implements WebDriverProvider {
 
-    // Константы уровня класса
     private static final String APPIUM_SERVER_URL = "http://localhost:4723/wd/hub";
     private static final String APP_VERSION = "app-alpha-universal-release.apk";
     private static final String APP_URL = "https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/" + APP_VERSION;
     private static final String APP_PATH = "src/test/resources/apps/" + APP_VERSION;
 
-    // Константы для Android пакетов и активностей
     private static final String ANDROID_APP_PACKAGE = "org.wikipedia.alpha";
     private static final String ANDROID_APP_ACTIVITY = "org.wikipedia.main.MainActivity";
 
-    // Константы для iOS bundle ID
     private static final String IOS_BUNDLE_ID = "org.wikimedia.wikipedia";
 
     @Nonnull
@@ -53,7 +50,6 @@ public class RealDeviceDriver implements WebDriverProvider {
         io.appium.java_client.android.options.UiAutomator2Options options =
                 new io.appium.java_client.android.options.UiAutomator2Options();
 
-        // Ключевые настройки для реального Android устройства
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
                 .setPlatformName(ANDROID)
                 .setPlatformVersion(config.osVersion())
@@ -61,10 +57,10 @@ public class RealDeviceDriver implements WebDriverProvider {
                 .setApp(getAppPath())
                 .setAppPackage(ANDROID_APP_PACKAGE)
                 .setAppActivity(ANDROID_APP_ACTIVITY)
-                .setUdid(config.udid())              // Уникальный ID устройства
-                .setNoReset(false)                   // Не сбрасывать данные приложения
-                .setFullReset(false)                 // Не делать полный сброс
-                .setAutoGrantPermissions(true);      // Автоматически давать разрешения
+                .setUdid(config.udid())
+                .setNoReset(false)
+                .setFullReset(false)
+                .setAutoGrantPermissions(true);
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
@@ -72,13 +68,12 @@ public class RealDeviceDriver implements WebDriverProvider {
     private WebDriver createIOSDriver(RealDeviceConfig config) {
         XCUITestOptions options = new XCUITestOptions();
 
-        // Ключевые настройки для реального iOS устройства
         options.setAutomationName(IOS_XCUI_TEST)
                 .setPlatformName(IOS)
                 .setDeviceName(config.deviceName())
                 .setApp(getAppPath())
                 .setBundleId(IOS_BUNDLE_ID)
-                .setUdid(config.udid());         // Уникальный ID устройства
+                .setUdid(config.udid());
 
         return new IOSDriver(getAppiumServerUrl(), options);
     }

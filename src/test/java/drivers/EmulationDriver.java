@@ -40,7 +40,6 @@ public class EmulationDriver implements WebDriverProvider {
     private WebDriver createAndroidDriver(EmulationConfig config) {
         UiAutomator2Options options = new UiAutomator2Options();
 
-        // Ключевые настройки для Android эмулятора
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
                 .setPlatformName(ANDROID)
                 .setPlatformVersion(config.osVersion())
@@ -55,7 +54,6 @@ public class EmulationDriver implements WebDriverProvider {
     private WebDriver createIOSDriver(EmulationConfig config) {
         XCUITestOptions options = new XCUITestOptions();
 
-        // Ключевые настройки для iOS симулятора
         options.setAutomationName(IOS_XCUI_TEST)
                 .setPlatformName(IOS)
                 .setPlatformVersion(config.osVersion())
