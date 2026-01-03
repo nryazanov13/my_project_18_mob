@@ -21,7 +21,7 @@ public class WikiTests extends TestBase {
     void emptySearchTest() {
         step("Ввести «» в поисковую строку", () -> {
             searchScreen
-                    .clickOnSkipButton()
+                    //.clickOnSkipButton()
                     .clickOnSearchTab()
                     .pressEnter();
         });
@@ -41,7 +41,7 @@ public class WikiTests extends TestBase {
     void successfulSearchTest() {
         step("Ввести «Appium» в поисковую строку", () -> {
             searchScreen
-                    .clickOnSkipButton()
+                    //.clickOnSkipButton()
                     .clickOnSearchTab()
                     .insertSearchText("Appium");
         });
